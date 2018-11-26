@@ -1,0 +1,11 @@
+{
+  "name": "app-pos",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "proxies":[{
+    "path": "/external",
+    "proxyUrl": "http://api.stepin.xmerce.com/external"
+  }]
+}

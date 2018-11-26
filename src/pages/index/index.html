@@ -1,0 +1,155 @@
+<ion-header id="index-header" no-border>
+  <ion-navbar>
+    <div id="navbar-box">
+      <div>
+        <ion-buttons>
+          <button ion-button icon-only menuToggle color="white" large>
+            <ion-icon name='menu'></ion-icon>
+          </button>
+        </ion-buttons>
+      </div>
+      <div>
+        <ion-title>
+          FLYING MEMBERS
+        </ion-title>
+      </div>
+      <div style="margin-right: 5px;">
+        <ion-buttons>
+          <button ion-button icon-only large>
+            <ion-icon name="ios-notifications-outline"></ion-icon>
+          </button>
+        </ion-buttons>
+      </div>
+    </div>
+  </ion-navbar>
+</ion-header>
+<ion-menu [content]="content">
+  <!-- <ion-header no-border>
+    <ion-navbar>
+      <div id="side-menu-navbar">
+        <div>
+            <ion-title></ion-title>
+        </div>
+        <div>
+          <ion-buttons>
+            <button ion-button icon-only large (click)="settings()">
+              <ion-icon name="ios-settings-outline"></ion-icon>
+            </button>
+          </ion-buttons>
+        </div>
+      </div>
+    </ion-navbar>
+  </ion-header>   -->
+  <ion-content>
+      <div style="display: flex; justify-content: flex-end;">
+        <div style="flex: 0.5;"></div>
+        <div style="flex: 2; text-align: center; padding: 35px 0 20px 0;">
+          <br>
+          <img class="circle-pic" src="assets/imgs/profile.png">
+          <h4>대표자명: 홍길동</h4>
+          <p>변경 아이콘 추가 해야할듯</p>
+        </div>
+        <div style="flex: 0.5;">
+          <ion-buttons>
+            <button ion-button icon-only clear (click)="settings()" color="dark">
+              <ion-icon name="ios-settings-outline"></ion-icon>
+            </button>
+          </ion-buttons>
+        </div>
+      </div>
+    <ion-list>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <div style="display: flex;">
+          <div>
+            <ion-icon name="{{p.icon}}"></ion-icon>
+          </div>
+          <div style="margin-left:10px;">{{p.title}}</div>
+        </div>  
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+
+<ion-content text-center no-bounce>
+  <div id="index-content-top">
+    <div id="index-content-top-left">
+      <p>
+          안녕하세요.<br/>
+        <span class="font-size-lg-200">강남점</span> 님</p>
+    </div>
+    <div id="index-content-top-right">
+        <div id="info-1st">
+          <span class="font-size-lg-400">7</span><span style="opacity: 0.3; font-size: 120%; letter-spacing: 2px;"> / 12</span>
+        </div>
+        <div id="info-2nd">
+            COUPON : 0<br/>
+            CARD : 0<br/>
+            LEVEL : GOLD<br/>
+        </div>
+      </div>
+  </div>
+  <div id="index-content-middle">
+    <ion-grid no-padding>
+      <ion-row>
+        <ion-col (click)="dashBoard()">
+          <div>
+            <ion-icon name="ios-calendar-outline"></ion-icon>
+          </div>
+          <div>
+              DASH BOARD
+          </div>
+        </ion-col>
+        <ion-col (click)="scan()">
+          <div>
+            <ion-icon name="ios-qr-scanner-outline"></ion-icon>
+          </div>
+          <div>
+              QR CODE
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col (click)="couponUp()">
+            <div>
+              <ion-icon name="ios-share-outline" style="zoom:3.5"></ion-icon>
+            </div>
+            <div>
+                SEND
+            </div>
+          </ion-col>
+          <ion-col>
+            <div>
+              <ion-icon name="ios-download-outline" style="zoom:3.5"></ion-icon>
+            </div>
+            <div>
+                RECEIVE
+            </div>
+          </ion-col>
+        </ion-row>
+      <ion-row>
+        <ion-col (click)="search()">
+          <div>
+            <ion-icon name="ios-list-box-outline"></ion-icon>
+          </div>
+          <div>
+              EXCH LIST
+          </div>
+        </ion-col>
+        <ion-col (click)="profile()">
+          <div>
+            <ion-icon name="ios-create-outline"></ion-icon>
+          </div>
+          <div>
+              PROFILE
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div id="index-content-bottom">
+    <div>
+      광고
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>가맹점설정</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form #formCtrl="ngForm">
+      <div align="center" *ngIf="formCtrl.form.valid">
+        <h1> 가산주유소</h1>
+        <img class="profile-image " src="assets/imgs/profile.png" >
+          <h4>대표자명: 홍길동</h4>
+          <p>단말기 앱번호:22521211</p>
+          <p>사업자 번호:128-33-14252</p>
+          <p>가맹점주소: 서울시 강남구 논현2동 226-52</p>
+          <p>가맹점전화번호:02-222-2223</p>
+          <p>변경 아이콘 추가 해야할듯</p>
+      </div>
+  <ion-list>
+      <ion-item>
+        <ion-label floating>ETC</ion-label>
+        <ion-input type="text"  required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>SELF TYPE</ion-label>
+        <ion-select name="셀프주유소 여부" required>
+          <ion-option value="SELF">SELF 주요소</ion-option>
+          <ion-option value="NORMAL">NORMAL</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+          <ion-label>세차장 운영 여부</ion-label>
+          <ion-select name="세차장 여부" required>
+            <ion-option value="Y">운영</ion-option>
+            <ion-option value="N">미운영</ion-option>
+          </ion-select>
+      </ion-item>
+      
+      ※ 추가 예정 주유기 갯수 / 당일 단가/
+     
+      
+  </ion-list>
+  <button color="black" [disabled]="!formCtrl.form.valid" ion-button block (click)="save()">변경처리</button>
+  <button color="white" ion-button block (click)="canel()">취소</button>
+</form>
+</ion-content>

@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>업무조회</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <div id="search">
+    <div>
+        기간
+    </div>
+    <div>
+        <ion-datetime displayFormat="YYYY/MM/DD" [(ngModel)]="startDate" (ionChange)="getItems($event, 'D')"></ion-datetime>
+    </div>
+    <div>
+      ~
+    </div>
+    <div>
+        <ion-datetime displayFormat="YYYY/MM/DD" [(ngModel)]="endDate" (ionChange)="getItems($event, 'D')"></ion-datetime>
+    </div>
+  </div>
+  <div>
+      <ion-searchbar (ionInput)="getItems($event, 'S')" type="number" placeholder="수신자번호를 입력해주세요"></ion-searchbar>
+  </div>
+  <ion-list>
+    <ion-item *ngFor="let item of list" (click)="exchangeCancel(item)">
+      <ion-thumbnail item-start>
+        <img src="{{ item.goods_img_url }}" *ngIf="item.goods_img_url != ''">
+        <!-- <img src="../assets/imgs/no_image.png" *ngIf="item.goods_img_url == ''"> -->
+        <img src="assets/imgs/close-128.png" *ngIf="item.goods_img_url == ''">
+      </ion-thumbnail>
+      <p>{{ item.dec_coupon_num }}</p>
+      <h2>{{ item.goods_name_disp }}</h2>
+      <p>{{ item.use_price }}원</p>
+      <p>{{ item.exchange_date }}<ion-note>{{ item.exchange_status == '1' ? '사용' : '사용취소' }}</ion-note></p>
+    </ion-item>
+  </ion-list>
+</ion-content>

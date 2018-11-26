@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>쿠폰 보내기</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <div class="drag-boundary" [ngClass]="{ 'top-b': !edge?.top, 'bottom-b': !edge?.bottom, 'left-b': !edge?.left, 'right-b': !edge?.right }" #myBounds>
+    <ion-card no-padding ngDraggable [trackPosition]="trackPosition" (started)="onDragBegin($event)" (stopped)="onDragEnd($event)" (endOffset)="onMoveEnd($event)" [position]="position" class="drag-block" (edge)="checkEdge($event)" [bounds]="myBounds" [inBounds]="inBounds" [outOfBounds]="edge">
+      <ion-card-header>
+          <div class="box">
+          <div>
+            <img src="assets/imgs/gs.png">
+          </div>  
+          <div>
+            테스트 모바일 상품권
+          </div>
+        </div>
+        <div style="margin-top: 30px;">
+          <ion-note>휘발유</ion-note>
+          <div style="font-weight: bolder; font-size: 150%;">
+            1,600원
+          </div>
+        </div>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="box">
+          <div style="padding-top: 10px;">
+              <div>
+                <button ion-button icon-start clear small>
+                  <ion-icon name="car"></ion-icon>
+                  <div>세차</div>
+                </button>
+              </div>
+            </div>
+            <div style="padding-top: 10px;">
+            <div>
+              <button ion-button icon-start clear small>
+                <ion-icon name="hammer"></ion-icon>
+                <div>수리</div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    <ion-card no-padding ngDraggable [trackPosition]="trackPosition" (started)="onDragBegin($event)" (stopped)="onDragEnd($event)" (endOffset)="onMoveEnd($event)" [position]="position" class="drag-block" (edge)="checkEdge($event)" [bounds]="myBounds" [inBounds]="inBounds" [outOfBounds]="edge">
+      <ion-card-header>
+          <div class="box">
+          <div>
+            <img src="assets/imgs/gs.png">
+          </div>  
+          <div>
+            테스트 모바일 상품권2
+          </div>
+        </div>
+        <div style="margin-top: 30px;">
+          <ion-note>휘발유</ion-note>
+          <div style="font-weight: bolder; font-size: 150%;">
+            3,600원
+          </div>
+        </div>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="box">
+          <div style="padding-top: 10px;">
+              <div>
+                <button ion-button icon-start clear small>
+                  <ion-icon name="car"></ion-icon>
+                  <div>세차</div>
+                </button>
+              </div>
+            </div>
+            <div style="padding-top: 10px;">
+            <div>
+              <button ion-button icon-start clear small>
+                <ion-icon name="hammer"></ion-icon>
+                <div>수리</div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

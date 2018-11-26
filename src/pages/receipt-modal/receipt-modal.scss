@@ -1,0 +1,134 @@
+page-receipt-modal {
+    font-weight: bold;
+
+    .toolbar-background {
+        background-color: #fff;
+    }
+
+    .toolbar-md {
+        border-bottom: 2px solid #ececec;
+    }
+
+    .toolbar-title-md {
+        font-weight: bold;
+    }
+
+    .content-top {
+        text-align: center;
+        margin: 0 0 20px 0;
+        
+        p {
+            font-size: 150%;
+            margin: 5px 0;
+        }
+    }
+
+    .branch-info {
+        display: flex;
+        align-content: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+
+        p {
+            font-size: 12px;
+            margin: 6px 0;
+        }
+    }
+
+    .branch-info__left {
+        
+    }
+    
+    .branch-info__right {
+        text-align: right;
+    }
+
+    .member-nickname {
+        text-align: center;
+        font-size: 150%;
+        border-top: 2px dashed #ececec;
+        border-bottom: 2px dashed #ececec;
+    }
+
+    .prd-info {
+        border-bottom: 1px solid #ececec;
+    }
+
+    .prd-info > div {
+        display: flex;
+        align-content: center;
+        justify-content: space-between;
+        padding: 4px 0;
+        font-size: 13px;
+        
+        .prd-name {
+            flex:2;
+        }
+    
+        .prd-price, .prd-cnt, .prd-price-sum {
+            flex:0.5;
+            text-align: right;
+        }
+    
+        .prd-cnt {
+            text-align: center;
+        }
+    }
+
+    .prd-subtotal {
+        display: flex;
+        align-content: center;
+        justify-content: space-between;
+        border-bottom: 2px dashed #ececec;
+        font-size: 15px;
+    }
+
+    .prd-fee {
+        border-bottom: 2px dashed #ececec;
+    }
+
+    .prd-fee > div {
+        display: flex;
+        align-content: center;
+        justify-content: space-between;
+        padding: 4px 0;
+        font-size: 13px;
+    }
+
+    .prd-total {
+        display: flex;
+        align-content: center;
+        justify-content: space-between;
+        border-bottom: 2px dashed #ececec;
+        font-size: 17px;
+    }
+
+    ion-content {
+        max-height: 600px;
+    }
+
+    .card-info {
+        border-bottom: 2px dashed #ececec;
+    }
+
+    .card-info > div {
+        display: flex;
+        align-content: center;
+        justify-content: space-between;
+        padding: 4px 0;
+        font-size: 13px;
+    }
+
+    .members-status__notice {
+        text-align: center;
+    }
+
+    .content-bottom {
+        border-top: 2px solid #ececec;
+        text-align: center;
+
+        img {
+            width: 65%;
+        }
+    }
+}

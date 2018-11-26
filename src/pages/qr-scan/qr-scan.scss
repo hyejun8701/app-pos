@@ -1,0 +1,42 @@
+page-qr-scan {
+    #keypad {
+        width: 100%;
+        bottom: 0px;
+        position: absolute;
+    }
+
+    #keypad .grid {
+        padding: 2px;
+    }
+
+    #keypad .card-content {
+        background-color: #dbdbdb;
+        padding: 0%;
+    }
+
+    #keypad ion-col {
+        text-align: center;
+        //border: 1px solid black;
+        border-radius: 4px;
+        background-color: #fff;
+        font-size: 150%;
+        color: slategray;
+        font-weight: bolder;
+    }
+    
+    #keypad .col {
+        margin: 3px;
+        padding: 10px 0px;
+        //border: 0.5px solid rgb(119, 143, 167);
+        //display: flex;
+        //justify-content: space-around;
+    }
+
+    #keypad .card-header-md {
+        padding: 0px 16px 16px 0;
+    }
+
+    #paymentBtn {
+        //margin: 0;
+    }
+}

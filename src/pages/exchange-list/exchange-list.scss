@@ -1,0 +1,15 @@
+page-exchange-list {
+    ion-note {
+        float: right;
+    }
+
+    #search {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    ion-datetime button {
+        width: auto !important;
+    }
+}

@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>전자영수증</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content no-padding>
+  <ion-list>
+      <ion-item-group>
+        <ion-item-divider>
+          <div id="receipt-content-top">
+            <div>
+              <span>기간: </span><span class="color-base-b">{{ this.startDate | date: 'yyyy-MM-dd' }} ~ {{ this.endDate | date: 'yyyy-MM-dd' }}</span>
+            </div>
+            <div>
+              <button ion-button (click)="dateCheck()">변경</button>
+            </div>
+          </div>
+        </ion-item-divider>
+        <ion-item *ngFor="let item of list" (click)="popReceipt()">
+          <div id="list-box">
+            <div>
+              <p style="font-weight: bold;">
+                {{ item.goods_name_disp }}
+              </p>
+              <p>
+                <ion-note>
+                  {{ item.exchange_status == '1' ? '결제' : '결제취소' }} | {{ item.exchange_date }}
+                </ion-note>
+              </p>
+            </div>
+            <div style="font-weight: bold;">
+              <p>
+                {{ item.use_price | number }}원
+              </p>
+            </div>
+            <div>
+              <ion-icon name="ios-paper-outline"></ion-icon>
+            </div>
+          </div>
+        </ion-item>
+    </ion-item-group>
+  </ion-list>
+</ion-content>

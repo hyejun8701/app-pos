@@ -1,0 +1,90 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>결제 처리</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-list *ngIf="result != null" inset>
+        <!-- <ion-list-header>
+          쿠폰정보
+          <button ion-button icon-only item-end clear>
+            <ion-icon name="cog"></ion-icon>
+          </button>
+        </ion-list-header> -->
+    
+        <ion-item-group>
+          <button ion-item>
+            <ion-label>쿠폰번호</ion-label>
+            <ion-note item-end>{{ result.dec_coupon_num }}</ion-note>
+          </button>
+    
+          <button ion-item>
+            <ion-label>쿠폰명</ion-label>
+            <ion-note item-end>{{ result.barcodeinfo.goods_name_disp }}</ion-note>
+          </button>
+
+          <button ion-item>
+            <ion-label>유효기간</ion-label>
+            <ion-note item-end>{{ result.barcodeinfo.exchange_enddate }}</ion-note>
+          </button>
+          
+          <button ion-item>
+            <ion-label>상태</ion-label>
+            <ion-note item-end>{{ result.result_code == 'AUTH_SUCCESS_S0000' ? '사용가능' : '사용불가'}}</ion-note>
+          </button>
+
+          <button ion-item (click)="setUsePrice(result.order_balance);">
+            <ion-label>잔액</ion-label>
+            <ion-note item-end>{{ result.barcodeinfo.order_balance }}</ion-note>
+          </button>
+        </ion-item-group>
+      </ion-list>
+      <ion-card *ngIf="result != null && result.result_code != 'AUTH_SUCCESS_S0000'">
+        <!-- <ion-card-header>
+          스캔결과
+        </ion-card-header> -->
+        <ion-card-content>
+            {{ result.result_msg }}
+        </ion-card-content>
+      </ion-card>
+      <ion-card *ngIf="result != null && result.barcodeinfo.order_balance != '0'" id="keypad" no-margin>
+        <ion-card-header>
+            <ion-item>
+              <ion-label>결제금액</ion-label>
+              <ion-input [(ngModel)]="usePrice" readonly></ion-input>
+            </ion-item>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-grid>
+            <ion-row>
+              <ion-col (click)="setKeypadNum('7');">7</ion-col>
+              <ion-col (click)="setKeypadNum('8');">8</ion-col>
+              <ion-col (click)="setKeypadNum('9');">9</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col (click)="setKeypadNum('4');">4</ion-col>
+              <ion-col (click)="setKeypadNum('5');">5</ion-col>
+              <ion-col (click)="setKeypadNum('6');">6</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col (click)="setKeypadNum('1');">1</ion-col>
+              <ion-col (click)="setKeypadNum('2');">2</ion-col>
+              <ion-col (click)="setKeypadNum('3');">3</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col (click)="setKeypadNum('C');">C</ion-col>
+              <ion-col (click)="setKeypadNum('0');">0</ion-col>
+              <ion-col (click)="setKeypadNum('D');"><ion-icon name="arrow-round-back"></ion-icon></ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+        <button ion-button icon-start large full id="paymentBtn" [disabled]="isDisabled" (click)="payment(usePrice); isDisabled=true;">
+          <ion-icon name="card"></ion-icon>
+          <div>결제</div>
+        </button>
+    </ion-card>
+</ion-content>
